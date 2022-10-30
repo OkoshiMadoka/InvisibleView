@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Invisible View</title>
+
+	<link rel="stylesheet" href="../style.css" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="../openseadragon/openseadragon.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+</head>
+
+<body>
+	<div id="openseadragon"></div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#openseadragon").css("height", "" + window.innerHeight + "px");
+			window.addEventListener("resize", () => {
+				$("#openseadragon").css("height", "" + window.innerHeight + "px");
+			}, false);
+		});
+
+		var viewer = OpenSeadragon({
+			id: "openseadragon",
+			prefixUrl: "./openseadragon/images/",
+			tileSources: "./dzi/image.dzi",
+			showNavigationControl: false,
+			maxZoomPixelRatio: 2
+		});
+	</script>
+</body>
+
+</html>
